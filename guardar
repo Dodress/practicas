@@ -1,34 +1,36 @@
- List<string> datosAinsertar = new List<string>();
+ public void guardar() {
+            List<string> datosAinsertar = new List<string>();
 
 
 
 
             string rutaDeTuBaseDeDatos = "E:/Clientes.mdb";//ENTRE LAS COMILLAS PONES DONDE ESTA TU BASE DE DATOS, EJEMPLO --> E:/Clientes.mdb
-            string nombreDeLaTabla= "usuarios";//ENTRE LAS COMILLAS PONES EL NOMBRE DE LA TABLA, EJEMPLO --> usuarios
-            datosAinsertar.Add ( textBox1.Text );//ENTRE LOS PARENTESIS PONES EL TEXTBOX QUE TENGA EL PRIMER CAMPO DE TU TABLA EJEMPLO --> textBox1.Text
-            datosAinsertar.Add ( textBox2.Text );//ENTRE LOS PARENTESIS PONES EL TEXTBOX QUE TENGA EL SEGUNDO CAMPO DE TU TABLA EJEMPLO --> textBox2.Text
-            datosAinsertar.Add ( textBox3.Text );//ENTRE LOS PARENTESIS PONES EL TEXTBOX QUE TENGA EL TERCERO CAMPO DE TU TABLA EJEMPLO --> TextBox3.Text
-            datosAinsertar.Add ( textBox4.Text );//ENTRE LOS PARENTESIS PONES EL TEXTBOX QUE TENGA EL CUARTO CAMPO DE TU TABLA EJEMPLO --> TextBox4.Text
+            string nombreDeLaTabla = "usuarios";//ENTRE LAS COMILLAS PONES EL NOMBRE DE LA TABLA, EJEMPLO --> usuarios
+            datosAinsertar.Add(textBox1.Text);//ENTRE LOS PARENTESIS PONES EL TEXTBOX QUE TENGA EL PRIMER CAMPO DE TU TABLA EJEMPLO --> textBox1.Text
+            datosAinsertar.Add(textBox2.Text);//ENTRE LOS PARENTESIS PONES EL TEXTBOX QUE TENGA EL SEGUNDO CAMPO DE TU TABLA EJEMPLO --> textBox2.Text
+            datosAinsertar.Add(textBox3.Text);//ENTRE LOS PARENTESIS PONES EL TEXTBOX QUE TENGA EL TERCERO CAMPO DE TU TABLA EJEMPLO --> TextBox3.Text
+            datosAinsertar.Add(textBox4.Text);//ENTRE LOS PARENTESIS PONES EL TEXTBOX QUE TENGA EL CUARTO CAMPO DE TU TABLA EJEMPLO --> TextBox4.Text
 
-                       
 
-            
+
+
             string cadena = "";
             int i = 0;
             foreach (string d in datosAinsertar)
             {
-                if (i<datosAinsertar.Count-1)
+                if (i < datosAinsertar.Count - 1)
                 {
-                    cadena+="'" + d + "', ";
+                    cadena += "'" + d + "', ";
                 }
                 else
                 {
-                    cadena+="'" + d + "'";
+                    cadena += "'" + d + "'";
                 }
                 i++;
-            }            
-            OleDbConnection conexion1 = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source ="+rutaDeTuBaseDeDatos);
+            }
+            OleDbConnection conexion1 = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source =" + rutaDeTuBaseDeDatos);
             conexion1.Open();
-            OleDbCommand insertar = new OleDbCommand("insert into "+nombreDeLaTabla+" values("+cadena+")", conexion1);
+            OleDbCommand insertar = new OleDbCommand("insert into " + nombreDeLaTabla + " values(" + cadena + ")", conexion1);
             insertar.ExecuteNonQuery();
             MessageBox.Show("Se ha guardado con exito");
+        }
