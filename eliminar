@@ -1,16 +1,5 @@
- string rutaDeTuBaseDeDatos = "E:/Clientes.mdb";//ENTRE LAS COMILLAS PONES DONDE ESTA TU BASE DE DATOS, EJEMPLO --> E:/Clientes.mdb
-            string nombreDeLaTabla = "usuarios";//ENTRE LAS COMILLAS PONES EL NOMBRE DE LA TABLA, EJEMPLO --> usuarios
-            string nombreDelCampo = "numero";//ENTRE LAS COMILLAS PONES EL NOMBRE DEL CAMPO POR EL CUAL ELIMINAR, EJEMPLO --> numero
-            string numeroAeliminar = textBox1.Text;//AQUI PONES EL TEXTBOX QUE CONTIENE EL NUMERO DE LA PERSONA QUE VAS A ELIMINAR
-
-
-
-
-            OleDbConnection conexion1 = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source =" + rutaDeTuBaseDeDatos);
-            conexion1.Open();
-            OleDbCommand eliminar = new OleDbCommand("delete from " + nombreDeLaTabla + " where " + nombreDelCampo + "='" + numeroAeliminar + "'", conexion1);
-            eliminar.ExecuteNonQuery();
-            MessageBox.Show("Eliminacion con exito"); string rutaDeTuBaseDeDatos = "E:/Clientes.mdb";//ENTRE LAS COMILLAS PONES DONDE ESTA TU BASE DE DATOS, EJEMPLO --> E:/Clientes.mdb
+ public void eliminar() {
+            string rutaDeTuBaseDeDatos = "E:/Clientes.mdb";//ENTRE LAS COMILLAS PONES DONDE ESTA TU BASE DE DATOS, EJEMPLO --> E:/Clientes.mdb
             string nombreDeLaTabla = "usuarios";//ENTRE LAS COMILLAS PONES EL NOMBRE DE LA TABLA, EJEMPLO --> usuarios
             string nombreDelCampo = "numero";//ENTRE LAS COMILLAS PONES EL NOMBRE DEL CAMPO POR EL CUAL ELIMINAR, EJEMPLO --> numero
             string numeroAeliminar = textBox1.Text;//AQUI PONES EL TEXTBOX QUE CONTIENE EL NUMERO DE LA PERSONA QUE VAS A ELIMINAR
@@ -23,3 +12,4 @@
             OleDbCommand eliminar = new OleDbCommand("delete from " + nombreDeLaTabla + " where " + nombreDelCampo + "='" + numeroAeliminar + "'", conexion1);
             eliminar.ExecuteNonQuery();
             MessageBox.Show("Eliminacion con exito");
+        }
