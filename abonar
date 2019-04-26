@@ -1,4 +1,6 @@
-string rutaDeTuBaseDeDatos = "E:/Clientes.mdb";//ENTRE LAS COMILLAS PONES DONDE ESTA TU BASE DE DATOS, EJEMPLO --> E:/Clientes.mdb
+
+public void abonar(){
+            string rutaDeTuBaseDeDatos = "E:/Clientes.mdb";//ENTRE LAS COMILLAS PONES DONDE ESTA TU BASE DE DATOS, EJEMPLO --> E:/Clientes.mdb
             string nombreDeLaTabla = "usuarios";//ENTRE LAS COMILLAS PONES EL NOMBRE DE LA TABLA, EJEMPLO --> usuarios
             string nombreDelCampoPrimaryKey = "numero";//ENTRE LAS COMILLAS PONES EL NOMBRE DEL CAMPO PRIMARY KEY EN TU BASE DE DATOS, EJEMPLO --> numero
             string numeroDelUsuario = textBox1.Text;//AQUI PONES EL TEXTBOX QUE CONTIENE EL NUMERO DEL CLIENTE, EJEMPLO -->textBox.text
@@ -21,3 +23,4 @@ string rutaDeTuBaseDeDatos = "E:/Clientes.mdb";//ENTRE LAS COMILLAS PONES DONDE 
             OleDbCommand actualizar = new OleDbCommand("update "+nombreDeLaTabla+" set "+nombreDelCampoAbonado+"='"+dinero.ToString()+"' where "+nombreDelCampoPrimaryKey+"='"+numeroDelUsuario+"'", conexion1);
             actualizar.ExecuteNonQuery();
             MessageBox.Show("Actualizacion exitosa");
+}
